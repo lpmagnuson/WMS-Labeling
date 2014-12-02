@@ -119,10 +119,10 @@ $_SESSION['printArray'] = $printArray;
         <div class="button_left_div"><a id="print_button" href="#print"><img src="images/icon-print.png" /><br/>Print Labels</a>
         </div>
         <div class="button_right_div">
-            <input type="radio" name="printer" value="dot_matrix" /> Okidata Dot Matrix (IE Only)<br />
-            <input type="radio" name="printer" value="laser" /> Laser Printer (IE/Chrome Only)<br />
-            <input type="radio" name="printer" value="laser_old" /> Old Laser Layout (IE/Chrome Only)<br />
-            <input type="radio" name="printer" value="dymo" /> Dymo Printer
+            <!--<input type="radio" name="printer" value="dot_matrix" /> Okidata Dot Matrix (IE Only)<br />-->
+            <input type="radio" name="printer" value="laser" checked="checked" /> Print to PDF <br />
+            <!--<input type="radio" name="printer" value="laser_old" /> Old Laser Layout (IE/Chrome Only)<br />
+            <input type="radio" name="printer" value="dymo" /> Dymo Printer</p>-->
         </div>
         <div class="clear"></div>
     </div>
