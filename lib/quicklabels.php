@@ -334,8 +334,9 @@ function quicklabels($nums, $title_p = "0") {
             $return_author = "";
             $print_call_num = "";
         }
-
-        $return_call_number = "$location_full<br />";
+        if ($location_full !="") {
+            $return_call_number = "$location_full<br />";
+        }
         $return_call_number .= str_replace(" ", "<br />", $callnum);
         
         // Return array of call number, pocket label text
