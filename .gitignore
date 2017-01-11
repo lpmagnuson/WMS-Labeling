@@ -1,6 +1,7 @@
 /nbproject/
 .idea
 config/config.php
+*.old
 config/crosswalks.php
 scripts/*.config.php
 images/logo.png
