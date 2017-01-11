@@ -50,16 +50,21 @@ function quicklabels($nums, $title_p = "0") {
         // Try up to 10 times to get a response; avoid failure due to network
         for ($i = 0; $i < 10; $i++) {
             $response = curl_exec($curl);
-            if (stristr($response, "unexpected end of file") || $response == "" || stristr($response, "The Server Failed to Respond Correctly")) {
+            if (stristr($response, "unexpected end of file") || $response == "" || stristr($response, "<html>") || stristr($response, "The Server Failed to Respond Correctly")) {
                 continue;
             } else {
                 break;
             }
         }
         curl_close($curl);
-
+		if (stristr($response, "<html>")) {
+			return array("&nbsp;", "This barcode was not found in WMS");
+		}
+		elseif ($response == "") {
+			return array("&nbsp;", "The WMS API  is down.  Check <a href=\"https://www.oclc.org/support/systemalerts.en.html\">OCLC System Alerts</a> and contact staff@palni.edu.");
+		};
+		
         $xml = new SimpleXMLElement($response);
-
         // If barcode not found, return immediately with that info
         if (stristr($response, "Unknown piece designation")) {
             return array("&nbsp;", "$barcode<br/>This barcode was not found in WMS.");
